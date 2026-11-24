@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SS Traders, Patkapur Kanpur | Hardware, Plumbing, Paints &amp; Sanitaryware</title>
+  <style>
+    :root {
+      --primary: #1e293b;
+      --primary-light: #334155;
+      --accent: #ea580c;
+      --accent-hover: #c2410c;
+      --whatsapp: #16a34a;
+      --whatsapp-hover: #15803d;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 10px;
+      --shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      padding-bottom: 30px;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* Top Info Bar */
+    .topbar {
+      background: #0f172a;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      padding: 8px 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .topbar strong { color: #ffffff; }
+    .topbar a { color: #fdba74; font-weight: 600; }
+    .topbar a:hover { text-decoration: underline; }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .nav-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+    .brand h1 { font-size: 1.2rem; line-height: 1.2; color: var(--primary); }
+    .brand small { display: block; font-size: 0.78rem; color: var(--muted); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    nav a:hover { color: var(--accent); }
+
+    .cart-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 9px 15px;
+      border-radius: 8px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+    .cart-btn:hover { background: var(--primary-light); }
+    .cart-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.78rem;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+      color: #fff;
+      padding: 64px 20px;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(234, 88, 12, 0.2);
+      border: 1px solid rgba(234, 88, 12, 0.5);
+      color: #fdba74;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .hero h2 {
+      font-size: clamp(1.85rem, 3.6vw, 2.75rem);
+      line-height: 1.18;
+      margin-bottom: 14px;
+    }
+    .hero p {
+      color: #cbd5e1;
+      font-size: 1.02rem;
+      margin-bottom: 24px;
+      max-width: 560px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid #64748b;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.08); }
+
+    .hero-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .mini-feature {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 18px;
+      border-radius: var(--radius);
+    }
+    .mini-feature h3 { font-size: 1rem; margin-bottom: 4px; color: #fff; }
+    .mini-feature p { font-size: 0.85rem; margin: 0; color: #cbd5e1; }
+
+    /* Sections */
+    section { max-width: 1200px; margin: 0 auto; padding: 56px 20px; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    .section-head h2 { font-size: 1.65rem; color: var(--primary); }
+    .section-head p { color: var(--muted); font-size: 0.95rem; }
+
+    /* Category Cards */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+    .cat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, border-color 0.18s ease;
+      cursor: pointer;
+    }
+    .cat-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .cat-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background: #fff7ed;
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      font-size: 1.4rem;
+    }
+    .cat-card h3 { font-size: 1.08rem; margin-bottom: 6px; }
+    .cat-card p { font-size: 0.88rem; color: var(--muted); }
+
+    /* Catalogue Controls */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+    .filter-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tab-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .search-box {
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-width: 250px;
+      font-size: 0.92rem;
+      background: var(--card);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+      gap: 18px;
+    }
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-thumb {
+      height: 140px;
+      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-light);
+      padding: 16px;
+      text-align: center;
+      position: relative;
+    }
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: var(--primary);
+    }
+    .product-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .product-body h3 { font-size: 1rem; margin-bottom: 4px; }
+    .product-spec { font-size: 0.83rem; color: var(--muted); margin-bottom: 12px; }
+    .product-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+    .price { font-weight: 700; font-size: 1.05rem; color: var(--primary); }
+    .price small { font-weight: 400; font-size: 0.78rem; color: var(--muted); }
+    .add-btn {
+      background: #fff7ed;
+      color: var(--accent);
+      border: 1px solid #fed7aa;
+      padding: 7px 12px;
+      border-radius: 7px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .add-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* Brands Strip */
+    .brands-strip {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 20px;
+    }
+    .brands-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .brands-inner p { color: var(--muted); font-size: 0.88rem; margin-bottom: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .brand-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .brand-pill {
+      padding: 9px 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-weight: 700;
+      color: var(--primary-light);
+      background: var(--bg);
+      font-size: 0.92rem;
+    }
+
+    /* Contact & Bulk Quote */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 28px;
+    }
+    .info-card, .form-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+    .info-list { list-style: none; display: grid; gap: 15px; margin-top: 16px; }
+    .info-list li strong { display: block; font-size: 0.86rem; color: var(--muted); }
+    .info-list li span, .info-list li a { font-size: 0.98rem; color: var(--text); font-weight: 500; }
+    .info-list li a { color: var(--accent); font-weight: 600; }
+    .info-list li a:hover { text-decoration: underline; }
+    .map-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.88rem !important;
+    }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 0.86rem; font-weight: 600; margin-bottom: 5px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.94rem;
+    }
+    .form-msg {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--whatsapp);
+      display: none;
+    }
+
+    /* Drawer Cart */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      display: none;
+      justify-content: flex-end;
+      z-index: 250;
+    }
+    .drawer-backdrop.open { display: flex; }
+    .drawer {
+      width: 100%;
+      max-width: 400px;
+      background: var(--card);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 22px;
+    }
+    .drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .close-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 1rem;
+    }
+    .drawer-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cart-item {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .cart-item h4 { font-size: 0.92rem; }
+    .cart-item small { color: var(--muted); }
+    .qty-controls { display: flex; align-items: center; gap: 6px; }
+    .qty-controls button {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-weight: 700;
+    }
+    .drawer-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .btn-whatsapp {
+      width: 100%;
+      background: var(--whatsapp);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .btn-whatsapp:hover { background: var(--whatsapp-hover); }
+
+    /* Floating WhatsApp Button */
+    .wa-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 180;
+      background: var(--whatsapp);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      box-shadow: 0 8px 22px rgba(22, 163, 74, 0.35);
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+    .wa-float:hover {
+      background: var(--whatsapp-hover);
+      transform: translateY(-2px);
+    }
+    .wa-float svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 26px 20px;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 850px) {
+      .hero-inner, .contact-grid { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .wa-float span { display: none; }
+      .wa-float { padding: 14px; border-radius: 50%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <span><strong>Open All 7 Days:</strong> 9:00 AM – 9:00 PM | Patkapur, Kanpur</span>
+    <span><strong>Call / WhatsApp:</strong> <a href="tel:+919580268798">+91 95802 68798</a> | Retail &amp; Contractor Wholesale</span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-wrap">
+      <a href="#" class="brand">
+        <div class="brand-icon">SS</div>
+        <div>
+          <h1>SS Traders</h1>
+          <small>Hardware • Plumbing • Sanitary • Paints</small>
+        </div>
+      </a>
+      <nav>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#brands">Brands</a>
+        <a href="#contact">Visit Store</a>
+      </nav>
+      <button class="cart-btn" id="openCartBtn">
+        Estimate List <span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-tag">SS Traders • Ram Narain Bazar, Patkapur, Kanpur</span>
+        <h2>Hardware, Plumbing, Sanitaryware, Paints &amp; Steel Aldrops Under One Roof</h2>
+        <p>Your neighbourhood store for Supreme &amp; Finolex CPVC/UPVC/PVC pipes, wash basins, kitchen sinks, brass &amp; plastic taps, Asian &amp; Berger paints, JK Wall Putty, Dr. Fixit, and stainless steel aldrops.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-primary">Browse Product Catalogue</a>
+          <a href="tel:+919580268798" class="btn-outline">Call +91 95802 68798</a>
+        </div>
+      </div>
+      <div class="hero-cards">
+        <div class="mini-feature">
+          <h3>Steel Aldrops &amp; Hardware</h3>
+          <p>SS 304/202 aldrops, tower bolts, hinges, handles, locks &amp; hand tools.</p>
+        </div>
+        <div class="mini-feature">
+          <h3>Pipes &amp; Taps</h3>
+          <p>CPVC, UPVC &amp; PVC pipes (Supreme, Finolex), brass taps &amp; plastic taps.</p>
+        </div>
+        <div class="mini-feature">
+          <h3>Sanitaryware</h3>
+          <p>Ceramic wash basins, stainless steel kitchen sinks, traps &amp; fittings.</p>
+        </div>
+        <div class="mini-feature">
+          <h3>Paints &amp; Waterproofing</h3>
+          <p>Asian Paints, Berger Paints, JK Wall Putty &amp; Dr. Fixit solutions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <section id="categories">
+    <div class="section-head">
+      <div>
+        <h2>Shop by Category</h2>
+        <p>Click any category to filter products in our catalogue below.</p>
+      </div>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card" onclick="selectCategory('hardware')">
+        <div class="cat-icon">🔩</div>
+        <h3>Steel Aldrops &amp; Hardware</h3>
+        <p>SS aldrops (8" to 16"), tower bolts, butt hinges, door stoppers, fasteners &amp; locks.</p>
+      </div>
+      <div class="cat-card" onclick="selectCategory('plumbing')">
+        <div class="cat-icon">🚰</div>
+        <h3>Pipes, Taps &amp; Sanitary</h3>
+        <p>CPVC, UPVC &amp; PVC pipes, wash basins, kitchen sinks, brass taps, plastic taps &amp; valves.</p>
+      </div>
+      <div class="cat-card" onclick="selectCategory('paints')">
+        <div class="cat-icon">🎨</div>
+        <h3>Paints, Putty &amp; Waterproofing</h3>
+        <p>Asian Paints, Berger Paints, JK Wall Putty, Dr. Fixit waterproofing, primers &amp; brushes.</p>
+      </div>
+      <div class="cat-card" onclick="selectCategory('tools')">
+        <div class="cat-icon">🛠️</div>
+        <h3>Hand Tools &amp; Adhesives</h3>
+        <p>Hammers, spanners, pipe wrenches, hacksaw blades, solvent cements &amp; sealants.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalogue -->
+  <section id="products" style="padding-top: 12px;">
+    <div class="section-head">
+      <div>
+        <h2>Popular Items &amp; Indicative Rates</h2>
+        <p>Add items to your Estimate List and send directly to SS Traders on WhatsApp for today's exact rate &amp; stock.</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="filter-tabs" id="filterTabs">
+        <button class="tab-btn active" data-cat="all">All Items</button>
+        <button class="tab-btn" data-cat="hardware">Steel Aldrops &amp; Hardware</button>
+        <button class="tab-btn" data-cat="plumbing">Pipes, Taps &amp; Sanitary</button>
+        <button class="tab-btn" data-cat="paints">Paints &amp; Putty</button>
+        <button class="tab-btn" data-cat="tools">Tools &amp; Waterproofing</button>
+      </div>
+      <input type="text" class="search-box" id="searchInput" placeholder="Search aldrop, wash basin, sink, CPVC, putty..." />
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <!-- Brands -->
+  <div class="brands-strip" id="brands">
+    <div class="brands-inner">
+      <p>Trusted Brands Stocked at SS Traders</p>
+      <div class="brand-pills">
+        <span class="brand-pill">Asian Paints</span>
+        <span class="brand-pill">Berger Paints</span>
+        <span class="brand-pill">JK Wall Putty</span>
+        <span class="brand-pill">Supreme Pipes</span>
+        <span class="brand-pill">Finolex Pipes</span>
+        <span class="brand-pill">Dr. Fixit</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact & Bulk Inquiry -->
+  <section id="contact">
+    <div class="section-head">
+      <div>
+        <h2>Visit SS Traders or Send a Requirement List</h2>
+        <p>Open all 7 days in Patkapur, Kanpur. Special rates available for plumbers, painters, and contractors.</p>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="info-card">
+        <h3>Store Details</h3>
+        <ul class="info-list">
+          <li>
+            <strong>Shop Name</strong>
+            <span>SS Traders</span>
+          </li>
+          <li>
+            <strong>Shop Address</strong>
+            <span>19/3 Ram Narain Bazar, Umar Ibn Khattab Ave, Patkapur, Kanpur, Uttar Pradesh</span>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=19%2F3+Ram+Narain+Bazar+Patkapur+Kanpur" target="_blank" rel="noopener noreferrer">Open Location in Google Maps &rarr;</a>
+          </li>
+          <li>
+            <strong>Phone &amp; WhatsApp</strong>
+            <a href="tel:+919580268798">+91 95802 68798</a>
+          </li>
+          <li>
+            <strong>Business Hours</strong>
+            <span>Open All 7 Days: 9:00 AM – 9:00 PM</span>
+          </li>
+          <li>
+            <strong>What We Deal In</strong>
+            <span>Hardware, Steel Aldrops, CPVC/UPVC/PVC Pipes, Wash Basins, Sinks, Brass &amp; Plastic Taps, Paints, Putty, Waterproofing &amp; Tools</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <h3>Send a Quick Requirement</h3>
+        <form id="quoteForm" style="margin-top: 14px;">
+          <div class="form-group">
+            <label for="custName">Your Name</label>
+            <input type="text" id="custName" placeholder="e.g., Imran / Rajesh" required />
+          </div>
+          <div class="form-group">
+            <label for="custPhone">Mobile / WhatsApp Number</label>
+            <input type="tel" id="custPhone" placeholder="10-digit mobile number" required />
+          </div>
+          <div class="form-group">
+            <label for="custType">Requirement Category</label>
+            <select id="custType">
+              <option>CPVC / UPVC / PVC Pipes &amp; Plumbing</option>
+              <option>Wash Basin, Kitchen Sink &amp; Taps (Brass/Plastic)</option>
+              <option>Asian / Berger Paints, JK Putty &amp; Dr. Fixit</option>
+              <option>Steel Aldrops, Hardware &amp; Tools</option>
+              <option>Mixed / Full Contractor List</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="custNotes">Item List / Details</label>
+            <textarea id="custNotes" rows="3" placeholder="e.g., 10 pcs SS aldrop, 1 ceramic wash basin, 6 brass taps, 5 bags JK Wall Putty..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%;">Send Inquiry on WhatsApp</button>
+          <p class="form-msg" id="formMsg">Opening WhatsApp with your inquiry details...</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 SS Traders • 19/3 Ram Narain Bazar, Umar Ibn Khattab Ave, Patkapur, Kanpur • Call/WhatsApp: +91 95802 68798.
+    <br />Open All 7 Days (9:00 AM – 9:00 PM). Prices shown are indicative; confirm latest rates in-store or via WhatsApp.
+  </footer>
+
+  <!-- Floating WhatsApp Chat Button -->
+  <a
+    class="wa-float"
+    href="https://wa.me/919580268798?text=Hello%20SS%20Traders%2C%20I%20would%20like%20to%20enquire%20about%20hardware%2Fplumbing%2Fpaints%20items."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with SS Traders on WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16.002 3C8.828 3 3 8.828 3 16.002c0 2.536.732 4.902 1.997 6.9L3.69 29l6.266-1.275A12.93 12.93 0 0 0 16.002 29C23.176 29 29 23.176 29 16.002 29 8.828 23.176 3 16.002 3zm0 23.62c-1.956 0-3.79-.525-5.37-1.44l-.385-.228-3.72.756.78-3.626-.25-.397A10.55 10.55 0 0 1 5.382 16c0-5.855 4.765-10.62 10.62-10.62 5.856 0 10.62 4.765 10.62 10.62 0 5.856-4.764 10.62-10.62 10.62zm5.826-7.95c-.32-.16-1.888-.932-2.182-1.038-.292-.106-.505-.16-.718.16-.213.32-.825 1.038-1.011 1.25-.186.214-.373.24-.692.08-.32-.16-1.348-.497-2.568-1.584-.95-.847-1.59-1.894-1.777-2.214-.186-.32-.02-.493.14-.652.144-.144.32-.373.48-.56.16-.186.213-.32.32-.533.106-.213.053-.4-.027-.56-.08-.16-.718-1.73-.984-2.37-.26-.623-.523-.538-.718-.548l-.612-.01c-.213 0-.56.08-.852.4-.292.32-1.118 1.092-1.118 2.664s1.145 3.09 1.305 3.303c.16.213 2.253 3.44 5.458 4.824.762.33 1.357.526 1.82.673.765.243 1.462.21 2.012.127.614-.092 1.888-.772 2.154-1.518.266-.746.266-1.385.186-1.518-.08-.133-.293-.213-.612-.373z"/>
+    </svg>
+    <span>WhatsApp Us</span>
+  </a>
+
+  <!-- Estimate Cart Drawer -->
+  <div class="drawer-backdrop" id="cartBackdrop">
+    <div class="drawer">
+      <div class="drawer-head">
+        <h3>Your Estimate List</h3>
+        <button class="close-btn" id="closeCartBtn">&times;</button>
+      </div>
+      <div class="drawer-items" id="cartItems"></div>
+      <div class="drawer-footer">
+        <div class="total-row">
+          <span>Indicative Total</span>
+          <span id="cartTotal">₹0</span>
+        </div>
+        <button class="btn-whatsapp" id="sendWhatsappBtn">Order / Ask Rate on WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const SHOP_WHATSAPP = "919580268798";
+
+    const products = [
+      { id: 1, name: "SS 304 Heavy Steel Aldrop (12 inch)", category: "hardware", spec: "16mm solid rod • Satin finish • Rust-proof", price: 320, unit: "pc", icon: "🔒" },
+      { id: 2, name: "SS 202 Steel Aldrop (10 inch)", category: "hardware", spec: "12mm rod • Mirror polish • Room doors", price: 185, unit: "pc", icon: "🔒" },
+      { id: 3, name: "Stainless Steel Tower Bolt (8 inch)", category: "hardware", spec: "Heavy gauge • Includes screws", price: 110, unit: "pc", icon: "🔩" },
+      { id: 4, name: "SS Butt Hinges (4 inch, Box of 6)", category: "hardware", spec: "3mm thickness • Smooth movement", price: 420, unit: "box", icon: "🚪" },
+      { id: 5, name: "CPVC Pipe 3/4 inch (Supreme / Finolex)", category: "plumbing", spec: "3 Meter length • Hot & cold water grade", price: 245, unit: "length", icon: "📏" },
+      { id: 6, name: "UPVC & PVC Pipe 1 inch (3 Meter)", category: "plumbing", spec: "High pressure cold water & drainage line", price: 210, unit: "length", icon: "📏" },
+      { id: 7, name: "Ceramic Wash Basin (Wall Hung)", category: "plumbing", spec: "Glossy white finish • Standard bathroom size", price: 1450, unit: "pc", icon: "🧼" },
+      { id: 8, name: "Stainless Steel Kitchen Sink (24x18 inch)", category: "plumbing", spec: "Heavy gauge SS • Anti-scratch satin finish", price: 2250, unit: "pc", icon: "🍽️" },
+      { id: 9, name: "Heavy Brass Bib Cock Tap (1/2 inch)", category: "plumbing", spec: "Chrome plated • Quarter-turn foam flow", price: 390, unit: "pc", icon: "🚰" },
+      { id: 10, name: "PTMT Plastic Bib Cock Tap (1/2 inch)", category: "plumbing", spec: "Corrosion-free • Lightweight & durable", price: 115, unit: "pc", icon: "💧" },
+      { id: 11, name: "JK Wall Putty (40 kg Bag)", category: "paints", spec: "White cement based • Smooth water-resistant base", price: 820, unit: "bag", icon: "🧱" },
+      { id: 12, name: "Asian Paints / Berger Interior Emulsion (20L)", category: "paints", spec: "Washable smooth finish • Multiple shades", price: 2850, unit: "bucket", icon: "🪣" },
+      { id: 13, name: "Synthetic Enamel Paint (1 Litre)", category: "paints", spec: "High gloss • For doors, windows & metal grills", price: 310, unit: "tin", icon: "🎨" },
+      { id: 14, name: "Dr. Fixit LW+ Waterproofing (1 Litre)", category: "tools", spec: "Integral waterproofing for plaster & concrete", price: 195, unit: "bottle", icon: "🛡️" },
+      { id: 15, name: "Pipe Wrench (12 inch) & Hand Tools", category: "tools", spec: "Drop-forged steel jaws • Heavy plumber grip", price: 360, unit: "pc", icon: "🔧" },
+      { id: 16, name: "CPVC / PVC Solvent Cement (118 ml)", category: "tools", spec: "Fast-setting leak-proof pipe joint adhesive", price: 175, unit: "tin", icon: "🧴" }
+    ];
+
+    let activeCategory = "all";
+    let searchTerm = "";
+    const cart = {};
+
+    const productGrid = document.getElementById("productGrid");
+    const cartCount = document.getElementById("cartCount");
+    const cartItemsEl = document.getElementById("cartItems");
+    const cartTotalEl = document.getElementById("cartTotal");
+    const cartBackdrop = document.getElementById("cartBackdrop");
+
+    function formatINR(num) {
+      return "₹" + num.toLocaleString("en-IN");
+    }
+
+    function renderProducts() {
+      const filtered = products.filter(p => {
+        const matchCat = activeCategory === "all" || p.category === activeCategory;
+        const matchSearch = (p.name + " " + p.spec).toLowerCase().includes(searchTerm.toLowerCase());
+        return matchCat && matchSearch;
+      });
+
+      if (!filtered.length) {
+        productGrid.innerHTML = `<p style="grid-column: 1/-1; color: var(--muted); padding: 20px 0;">No items matched "${searchTerm}". Message SS Traders on WhatsApp (+91 95802 68798) — we stock a full range of hardware, pipes, taps, sanitaryware &amp; paints in-store.</p>`;
+        return;
+      }
+
+      productGrid.innerHTML = filtered.map(p => `
+        <div class="product-card">
+          <div class="product-thumb">
+            <span class="product-badge">${p.category.toUpperCase()}</span>
+            <div style="font-size: 2.5rem;">${p.icon}</div>
+          </div>
+          <div class="product-body">
+            <h3>${p.name}</h3>
+            <p class="product-spec">${p.spec}</p>
+            <div class="product-footer">
+              <div class="price">${formatINR(p.price)} <small>/ ${p.unit}</small></div>
+              <button class="add-btn" onclick="addToCart(${p.id})">+ Add</button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function selectCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.cat === cat);
+      });
+      renderProducts();
+      document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function addToCart(id) {
+      cart[id] = (cart[id] || 0) + 1;
+      updateCartUI();
+    }
+
+    function changeQty(id, delta) {
+      cart[id] = (cart[id] || 0) + delta;
+      if (cart[id] <= 0) delete cart[id];
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const entries = Object.entries(cart);
+      const totalQty = entries.reduce((sum, [, qty]) => sum + qty, 0);
+      cartCount.textContent = totalQty;
+
+      if (!entries.length) {
+        cartItemsEl.innerHTML = `<p style="color: var(--muted); text-align: center; margin-top: 30px;">Your estimate list is empty. Add items from the catalogue.</p>`;
+        cartTotalEl.textContent = "₹0";
+        return;
+      }
+
+      let grandTotal = 0;
+      cartItemsEl.innerHTML = entries.map(([id, qty]) => {
+        const item = products.find(p => p.id === Number(id));
+        const sub = item.price * qty;
+        grandTotal += sub;
+        return `
+          <div class="cart-item">
+            <div>
+              <h4>${item.name}</h4>
+              <small>${formatINR(item.price)} &times; ${qty} = ${formatINR(sub)}</small>
+            </div>
+            <div class="qty-controls">
+              <button onclick="changeQty(${item.id}, -1)">-</button>
+              <span>${qty}</span>
+              <button onclick="changeQty(${item.id}, 1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      cartTotalEl.textContent = formatINR(grandTotal);
+    }
+
+    document.getElementById("filterTabs").addEventListener("click", (e) => {
+      if (!e.target.classList.contains("tab-btn")) return;
+      activeCategory = e.target.dataset.cat;
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      e.target.classList.add("active");
+      renderProducts();
+    });
+
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      searchTerm = e.target.value.trim();
+      renderProducts();
+    });
+
+    document.getElementById("openCartBtn").addEventListener("click", () => cartBackdrop.classList.add("open"));
+    document.getElementById("closeCartBtn").addEventListener("click", () => cartBackdrop.classList.remove("open"));
+    cartBackdrop.addEventListener("click", (e) => {
+      if (e.target === cartBackdrop) cartBackdrop.classList.remove("open");
+    });
+
+    document.getElementById("sendWhatsappBtn").addEventListener("click", () => {
+      const entries = Object.entries(cart);
+      if (!entries.length) {
+        alert("Please add at least one item to your estimate list first.");
+        return;
+      }
+      let lines = ["Hello SS Traders (Patkapur, Kanpur), I would like the latest rate & availability for:"];
+      let total = 0;
+      entries.forEach(([id, qty], idx) => {
+        const item = products.find(p => p.id === Number(id));
+        total += item.price * qty;
+        lines.push(`${idx + 1}. ${item.name} — Qty: ${qty} ${item.unit}`);
+      });
+      lines.push(`\nIndicative Total: ${formatINR(total)}`);
+      const url = `https://wa.me/${SHOP_WHATSAPP}?text=${encodeURIComponent(lines.join("\n"))}`;
+      window.open(url, "_blank");
+    });
+
+    document.getElementById("quoteForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("custName").value.trim();
+      const phone = document.getElementById("custPhone").value.trim();
+      const type = document.getElementById("custType").value;
+      const notes = document.getElementById("custNotes").value.trim();
+
+      const msg = `New Inquiry for SS Traders:\nName: ${name}\nPhone: ${phone}\nCategory: ${type}\nRequirement: ${notes}`;
+      document.getElementById("formMsg").style.display = "block";
+      window.open(`https://wa.me/${SHOP_WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank");
+    });
+
+    renderProducts();
+    updateCartUI();
+  </script>
+</body>
+</html>
